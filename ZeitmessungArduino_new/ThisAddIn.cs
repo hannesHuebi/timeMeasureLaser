@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using Excel = Microsoft.Office.Interop.Excel;
+using Office = Microsoft.Office.Core;
+using Microsoft.Office.Tools.Excel;
+using System.Windows.Forms;
+
+namespace ZeitmessungArduino
+{
+    public partial class ThisAddIn
+    {
+        private Ribbon1 utilities;
+
+        protected override object RequestComAddInAutomationService()
+        {
+            if (utilities == null)
+                utilities = new Ribbon1();
+
+            return utilities;
+        }
+
+        private void ThisAddIn_Startup(object sender, System.EventArgs e)
+        {
+           
+        }
+
+        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        {
+        }
+
+        #region Von VSTO generierter Code
+
+        /// <summary>
+        /// Erforderliche Methode für die Designerunterstützung.
+        /// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+        /// </summary>
+        private void InternalStartup()
+        {
+            this.Startup += new System.EventHandler(ThisAddIn_Startup);
+            this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+        }
+        
+        #endregion
+    }
+}
